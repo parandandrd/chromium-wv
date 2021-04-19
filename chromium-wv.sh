@@ -3,6 +3,9 @@
 echo "Enabling XHost Forwarding..."
 xhost +
 
+echo "Setting Up User Volume..."
+docker volume create chromium_home
+
 docker run --privileged \
         -e DISPLAY=unix$DISPLAY \
         -v chromium_home:/home \
