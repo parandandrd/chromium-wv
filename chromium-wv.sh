@@ -6,6 +6,7 @@ xhost +
 echo "Setting Up User Volume..."
 docker volume create chromium_home
 
+echo "Running Docker container..."
 docker run --privileged \
         -e DISPLAY=unix$DISPLAY \
         -v chromium_home:/home \
