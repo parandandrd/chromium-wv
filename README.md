@@ -11,3 +11,11 @@ Right now this browser has been tested on Amazon Prime Video, Netflix, and Hulu.
 The chromium-wv container is a vanilla install of Raspberry Pi OS with the Widevine DRM package installed, slimmed via Docker-Slim. No further modifications have been made to the included image. 
 
 Instructions on how to build your own container will be forthcoming.
+
+Background
+
+By default, Chromium does not support Widevine DRM, which is used by Netflix, Hulu, Amazon Video, etc. to encrypt their content. It is possible to extract the WidevineCdm libraries from a ChromeOS image, and install them so that Chromium recognizes them and becomes capable of viewing DRM-protected content.
+
+HOWEVER...
+
+The libraries only exist in 32-bit form, which means this particular hack won't work on 64-bit systems. Hence, a docker container that will run an instanced 32-bit Chromium with the necessary libraries configured.
